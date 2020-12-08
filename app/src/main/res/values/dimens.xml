@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="splash_padding_name">50dp</dimen>
+    <dimen name="splashIvHeight">400dp</dimen>
+    <dimen name="splashTextSize">50sp</dimen>
+    <dimen name="navHeaderWidth">150dp</dimen>
+    <dimen name="navHeaderHeight">100dp</dimen>
+    <dimen name="navHeaderMarginTop">25dp</dimen>
+    <dimen name="navWidth">162dp</dimen>
+    <dimen name="navHeight">240dp</dimen>
+</resources>
