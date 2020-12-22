@@ -1,7 +1,7 @@
 package hr.algebra.nasa.model
 
 data class Item(
-    var id: Long?,
+    var _id: Long?,
     var title: String,
     val explanation: String,
     val picturePath: String,
