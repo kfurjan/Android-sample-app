@@ -2,7 +2,7 @@ package hr.algebra.nasa.api
 
 import com.google.gson.annotations.SerializedName
 
-data class NasaItem( //communication
+data class NasaItem( // communication
     @SerializedName("date") val date: String,
     @SerializedName("explanation") val explanation: String,
     @SerializedName("hdurl") val hdurl: String,

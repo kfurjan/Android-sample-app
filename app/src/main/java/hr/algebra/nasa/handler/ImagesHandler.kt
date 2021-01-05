@@ -33,9 +33,7 @@ fun downloadImageAndStore(context: Context, url: String, filename: String): Stri
                 return file.absolutePath
             }
         }
-    } catch (e: Exception) {
-
-    }
+    } catch (e: Exception) { }
 
     return null
 }

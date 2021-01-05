@@ -1,6 +1,10 @@
 package hr.algebra.nasa
 
-import android.content.*
+import android.content.ContentProvider
+import android.content.ContentResolver
+import android.content.ContentUris
+import android.content.ContentValues
+import android.content.UriMatcher
 import android.database.Cursor
 import android.net.Uri
 import hr.algebra.nasa.dao.NasaRepository
@@ -61,12 +65,17 @@ class NasaProvider : ContentProvider() {
     }
 
     override fun query(
-        uri: Uri, projection: Array<String>?, selection: String?,
-        selectionArgs: Array<String>?, sortOrder: String?
+        uri: Uri,
+        projection: Array<String>?,
+        selection: String?,
+        selectionArgs: Array<String>?,
+        sortOrder: String?
     ): Cursor? = repository.query(projection, selection, selectionArgs, sortOrder)
 
     override fun update(
-        uri: Uri, values: ContentValues?, selection: String?,
+        uri: Uri,
+        values: ContentValues?,
+        selection: String?,
         selectionArgs: Array<String>?
     ): Int {
         when (URI_MATCHER.match(uri)) {

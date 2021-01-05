@@ -9,12 +9,18 @@ import android.net.NetworkCapabilities
 import android.view.View
 import android.view.animation.AnimationUtils
 import androidx.preference.PreferenceManager
+import hr.algebra.nasa.NASA_PROVIDER_CONTENT_URI
+import hr.algebra.nasa.model.Item
 
 fun View.applyAnimation(resourceId: Int) =
     startAnimation(AnimationUtils.loadAnimation(context, resourceId))
 
 inline fun <reified T : Activity> Context.startActivity() =
-    startActivity(Intent(this, T::class.java))
+    startActivity(
+        Intent(this, T::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+    )
 
 inline fun <reified T : BroadcastReceiver> Context.sendBroadcast() =
     sendBroadcast(Intent(this, T::class.java))
@@ -37,9 +43,31 @@ fun Context.isOnline(): Boolean {
         val networkCapabilities = connectivityManager.getNetworkCapabilities(network)
         if (networkCapabilities != null) {
             return networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_CELLULAR) ||
-                    networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
+                networkCapabilities.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)
         }
     }
 
     return false
+}
+
+fun Context.fetchItems(): MutableList<Item> {
+    val items = mutableListOf<Item>()
+    val cursor = contentResolver?.query(NASA_PROVIDER_CONTENT_URI, null, null, null, null, null)
+
+    if (cursor != null) {
+        while (cursor.moveToNext()) {
+            items.add(
+                Item(
+                    cursor.getLong(cursor.getColumnIndex(Item::_id.name)),
+                    cursor.getString(cursor.getColumnIndex(Item::title.name)),
+                    cursor.getString(cursor.getColumnIndex(Item::explanation.name)),
+                    cursor.getString(cursor.getColumnIndex(Item::picturePath.name)),
+                    cursor.getString(cursor.getColumnIndex(Item::date.name)),
+                    cursor.getInt(cursor.getColumnIndex(Item::date.name)) == 1,
+                )
+            )
+        }
+    }
+
+    return items
 }

@@ -9,4 +9,6 @@
     <string name="exit">Exit</string>
     <string name="really">Really?</string>
     <string name="cancel">Cancel</string>
+    <string name="delete">Delete</string>
+    <string name="really_delete">Really delete</string>
 </resources>

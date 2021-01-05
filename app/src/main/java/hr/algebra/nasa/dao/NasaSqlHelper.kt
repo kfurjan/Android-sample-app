@@ -10,16 +10,17 @@ private const val DB_NAME = "items.db"
 private const val DB_VERSION = 1
 private const val TABLE_NAME = "items"
 private val CREATE_TABLE = "create table $TABLE_NAME( " +
-        "${Item::_id.name} integer primary key autoincrement, " +
-        "${Item::title.name} text not null, " +
-        "${Item::explanation.name} text not null, " +
-        "${Item::picturePath.name} text not null, " +
-        "${Item::date.name} text not null, " +
-        "${Item::read.name} integer not null" +
-        ")"
+    "${Item::_id.name} integer primary key autoincrement, " +
+    "${Item::title.name} text not null, " +
+    "${Item::explanation.name} text not null, " +
+    "${Item::picturePath.name} text not null, " +
+    "${Item::date.name} text not null, " +
+    "${Item::read.name} integer not null" +
+    ")"
 private const val DROP_TABLE = "drop table $TABLE_NAME"
 
-class NasaSqlHelper(context: Context?) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION),
+class NasaSqlHelper(context: Context?) :
+    SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION),
     NasaRepository {
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL(CREATE_TABLE)
@@ -40,8 +41,10 @@ class NasaSqlHelper(context: Context?) : SQLiteOpenHelper(context, DB_NAME, null
         writableDatabase.insert(TABLE_NAME, null, values)
 
     override fun query(
-        projection: Array<String>?, selection: String?,
-        selectionArgs: Array<String>?, sortOrder: String?
+        projection: Array<String>?,
+        selection: String?,
+        selectionArgs: Array<String>?,
+        sortOrder: String?
     ) = readableDatabase.query(
         TABLE_NAME,
         projection,
@@ -53,7 +56,8 @@ class NasaSqlHelper(context: Context?) : SQLiteOpenHelper(context, DB_NAME, null
     )
 
     override fun update(
-        values: ContentValues?, selection: String?,
+        values: ContentValues?,
+        selection: String?,
         selectionArgs: Array<String>?
     ) = writableDatabase.update(TABLE_NAME, values, selection, selectionArgs)
 }

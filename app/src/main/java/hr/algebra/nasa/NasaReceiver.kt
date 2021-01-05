@@ -9,7 +9,7 @@ import hr.algebra.nasa.framework.startActivity
 class NasaReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        // context.setBooleanPreference(DATA_IMPORTED, true)
+        context.setBooleanPreference(DATA_IMPORTED, true)
         context.startActivity<HostActivity>()
     }
 }

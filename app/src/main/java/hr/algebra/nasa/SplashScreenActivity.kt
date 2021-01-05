@@ -38,7 +38,7 @@ class SplashScreenActivity : AppCompatActivity() {
         } else {
             if (isOnline()) {
                 Intent(this, NasaService::class.java).apply {
-                   NasaService.enqueueWork(this@SplashScreenActivity, this)
+                    NasaService.enqueueWork(this@SplashScreenActivity, this)
                 }
             } else {
                 Toast.makeText(

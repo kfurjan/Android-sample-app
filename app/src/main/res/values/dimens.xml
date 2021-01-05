@@ -8,4 +8,9 @@
     <dimen name="navHeaderMarginTop">25dp</dimen>
     <dimen name="navWidth">162dp</dimen>
     <dimen name="navHeight">240dp</dimen>
+    <dimen name="paddingMain">10dp</dimen>
+    <dimen name="ivSize">50dp</dimen>
+    <dimen name="tvSize">20sp</dimen>
+    <dimen name="tvMarginLeft">20dp</dimen>
+    <dimen name="cardCornerRadius">9dp</dimen>
 </resources>

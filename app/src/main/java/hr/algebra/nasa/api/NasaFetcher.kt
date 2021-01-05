@@ -47,8 +47,6 @@ class NasaFetcher(private val context: Context) {
     }
 
     private fun populateItems(nasaItems: List<NasaItem>) {
-        // problem -> u foregroundu sam
-        // moram opet u background, da procesiram
         GlobalScope.launch {
             nasaItems.forEach {
                 val picturePath = downloadImageAndStore(context, it.url, it.title.replace(" ", "_"))
