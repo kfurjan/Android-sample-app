@@ -28,9 +28,6 @@ class NasaSqlHelper(context: Context?) :
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db?.execSQL(DROP_TABLE)
-        // napravi backup
-        // upgrade db
-        // izvadi podatke iz backup-a
         onCreate(db)
     }
 

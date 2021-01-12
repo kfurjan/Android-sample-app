@@ -13,11 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Nasa">
+        <activity android:name=".ItemPagerActivity"></activity>
+
         <provider
             android:name=".NasaProvider"
             android:authorities="hr.algebra.nasa.api.provider"
             android:enabled="true"
-            android:exported="false"></provider>
+            android:exported="false" />
 
         <receiver
             android:name=".NasaReceiver"

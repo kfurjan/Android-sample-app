@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
+import hr.algebra.nasa.framework.startActivity
 import hr.algebra.nasa.model.Item
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 import java.io.File
@@ -38,6 +39,8 @@ class ItemAdapter(private val items: MutableList<Item>, private val context: Con
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        holder.itemView.setOnClickListener { context.startActivity<ItemPagerActivity>(ITEM_POSITION, position) }
+
         holder.itemView.setOnLongClickListener {
             AlertDialog.Builder(context).apply {
                 setTitle(context.getString(R.string.delete))

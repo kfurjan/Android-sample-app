@@ -13,4 +13,7 @@
     <dimen name="tvSize">20sp</dimen>
     <dimen name="tvMarginLeft">20dp</dimen>
     <dimen name="cardCornerRadius">9dp</dimen>
+    <dimen name="paddingItemPager">10dp</dimen>
+    <dimen name="ivHeightItemPager">300dp</dimen>
+    <dimen name="marginTopItemPager">20dp</dimen>
 </resources>

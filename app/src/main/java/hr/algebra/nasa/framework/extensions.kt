@@ -22,6 +22,14 @@ inline fun <reified T : Activity> Context.startActivity() =
         }
     )
 
+inline fun <reified T : Activity> Context.startActivity(key: String, value: Int) =
+    startActivity(
+        Intent(this, T::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+            putExtra(key, value)
+        }
+    )
+
 inline fun <reified T : BroadcastReceiver> Context.sendBroadcast() =
     sendBroadcast(Intent(this, T::class.java))
 
@@ -63,7 +71,7 @@ fun Context.fetchItems(): MutableList<Item> {
                     cursor.getString(cursor.getColumnIndex(Item::explanation.name)),
                     cursor.getString(cursor.getColumnIndex(Item::picturePath.name)),
                     cursor.getString(cursor.getColumnIndex(Item::date.name)),
-                    cursor.getInt(cursor.getColumnIndex(Item::date.name)) == 1,
+                    cursor.getInt(cursor.getColumnIndex(Item::read.name)) == 1,
                 )
             )
         }
