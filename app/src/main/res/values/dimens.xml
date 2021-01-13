@@ -16,4 +16,7 @@
     <dimen name="paddingItemPager">10dp</dimen>
     <dimen name="ivHeightItemPager">300dp</dimen>
     <dimen name="marginTopItemPager">20dp</dimen>
+    <dimen name="marginTopAboutFragment">315dp</dimen>
+    <dimen name="paddingAboutFragment">10dp</dimen>
+    <dimen name="ivPaddingAboutFragment">10dp</dimen>
 </resources>

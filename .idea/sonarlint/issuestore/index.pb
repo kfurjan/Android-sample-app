@@ -41,3 +41,7 @@ a
 1app/src/main/java/hr/algebra/nasa/NasaProvider.kt,f/d/fd7cb6ab7157f011d7e5280638a3f75b7d1acafb
 b
 2app/src/main/java/hr/algebra/nasa/ItemsFragment.kt,6/d/6daa484b4313b0acf88be6a2ffead6b8b85fa74f
+f
+6app/src/main/java/hr/algebra/nasa/ItemPagerActivity.kt,3/1/31298e1015a8289bf3d74d9a113a90c3fe11ab2e
+e
+5app/src/main/java/hr/algebra/nasa/ItemPagerAdapter.kt,3/4/34c34eb4e5d72f813843576f2eede02bb09f1914

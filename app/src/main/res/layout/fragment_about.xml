@@ -5,10 +5,35 @@
     android:layout_height="match_parent"
     tools:context=".AboutFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ImageView
+        android:id="@+id/ivAbout"
+        android:padding="@dimen/ivPaddingAboutFragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="About" />
+        android:layout_height="@dimen/ivHeightItemPager"
+        android:contentDescription="@string/about_picture"
+        android:src="@drawable/flat_about" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopAboutFragment"
+        android:padding="@dimen/paddingAboutFragment">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text="@string/application_version"
+            android:textColor="@android:color/darker_gray"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvAppVersion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/app_version_placeholder"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
 </FrameLayout>

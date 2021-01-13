@@ -15,15 +15,15 @@ import hr.algebra.nasa.model.Item
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation
 import java.io.File
 
-class ItemPagerAdapter(private val items: MutableList<Item>, private val context: Context) :
+class ItemPagerAdapter(private var items: MutableList<Item>, private val context: Context) :
     RecyclerView.Adapter<ItemPagerAdapter.ViewHolder>() {
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val ivItem: ImageView = itemView.findViewById(R.id.ivItem)
-        val ivRead: ImageView = itemView.findViewById(R.id.ivRead)
         private val tvDate: TextView = itemView.findViewById(R.id.tvDate)
         private val tvTitle: TextView = itemView.findViewById(R.id.tvTitle)
         private val tvExplanation: TextView = itemView.findViewById(R.id.tvExplanation)
+        val ivRead: ImageView = itemView.findViewById(R.id.ivRead)
 
         fun bind(item: Item) {
             Picasso.get()
@@ -39,11 +39,11 @@ class ItemPagerAdapter(private val items: MutableList<Item>, private val context
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_pager, parent, false)
-        return ViewHolder(itemView)
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
+        ViewHolder(
+            LayoutInflater.from(parent.context)
+                .inflate(R.layout.item_pager, parent, false)
+        )
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         if (!items[position].read) {
@@ -54,8 +54,9 @@ class ItemPagerAdapter(private val items: MutableList<Item>, private val context
                     null,
                     arrayOf(items[position]._id.toString())
                 )
+                items = context.fetchItems()
 
-                holder.bind(context.fetchItems()[position])
+                holder.bind(items[position])
             }
         }
 
