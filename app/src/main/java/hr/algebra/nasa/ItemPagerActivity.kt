@@ -24,7 +24,7 @@ class ItemPagerActivity : AppCompatActivity() {
     private fun init() {
         items = fetchItems()
         itemPosition = intent.getIntExtra(ITEM_POSITION, 0)
-        viewPager.adapter = ItemPagerAdapter(items, this)
+        viewPager.adapter = ItemPagerAdapter(items)
         viewPager.currentItem = itemPosition
     }
 
